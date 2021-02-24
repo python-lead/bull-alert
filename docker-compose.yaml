@@ -1,0 +1,41 @@
+---
+
+version: "3.7"
+
+services:
+  backend:
+    ports:
+      - 8000:8000
+    <<: &backend
+      build:
+        target: development_build
+        context: ./backend
+        dockerfile: docker/Dockerfile
+        args:
+          BACKEND_ENV: development
+      container_name: ye_backend
+      restart: unless-stopped
+      depends_on:
+        - db
+      env_file: ./deployment/config/.env
+      command: .local/bin/uvicorn main:app --reload --host 0.0.0.0
+      environment:
+        BACKEND_DATABASE_HOST: db
+        BACKEND_DATABASE_PORT: 5432
+      volumes:
+        - ./backend:/code
+      stdin_open: true
+      tty: true
+
+  db:
+    image: postgres:12-alpine
+    container_name: ye_postgres
+    restart: unless-stopped
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    env_file: ./deployment/config/.env
+    ports:
+      - 5432:5432
+
+volumes:
+  pgdata:
