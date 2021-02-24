@@ -1,0 +1,17 @@
+[build-system]
+requires = ["poetry==1.1.4"]
+build-backend = "poetry.masonry.api"
+
+[tool.poetry]
+name = "bull-alert"
+description = ""
+version = "0.0.1"
+readme = "README.md"
+authors = []
+
+[tool.poetry.dependencies]
+python = "3.9.2"
+
+psycopg2 = "^2.8.6"
+python-decouple = "^3.4"
+fastapi = "^0.63.0"
