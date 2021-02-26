@@ -6,6 +6,7 @@ backend/.ipython
 media
 static
 *venv
+.pep8
 # frontend
 .firebase
 build
