@@ -3,11 +3,8 @@ from unittest.mock import MagicMock
 
 import pytest
 
-from src.apps.services.etherscan import (
-    EtherscanAccountModule,
-    EtherscanClientResponse,
-    EtherscanService,
-)
+from src.apps.services.etherscan import EtherscanAccountModule, EtherscanService
+from src.apps.services.models import EtherscanClientResponse
 
 
 class TestEtherscanAccountModule:
