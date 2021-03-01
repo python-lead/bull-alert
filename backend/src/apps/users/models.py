@@ -16,7 +16,7 @@ class Blockchain(BaseModel):
         return subunit_value / self.subunit_ratio
 
 
-ETH = Blockchain(symbol="eth", name="Ethereum", subunit_ratio=10**18)
+ETH = Blockchain(symbol="eth", name="Ethereum", subunit_ratio=10 ** 18)
 BSC = Blockchain(symbol="bsc", name="Binance Smart Chain")
 
 
