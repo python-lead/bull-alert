@@ -8,9 +8,15 @@ from pydantic import BaseModel, ValidationError
 class Blockchain(BaseModel):
     symbol: str
     name: str
+    subunit_ratio: Optional[int]
+
+    def get_super_unit_value(self, subunit_value: int) -> float:
+        if not self.subunit_ratio:
+            raise ValueError("You need to set subunit_ratio value for this blockchain")
+        return subunit_value / self.subunit_ratio
 
 
-ETH = Blockchain(symbol="eth", name="Ethereum")
+ETH = Blockchain(symbol="eth", name="Ethereum", subunit_ratio=10 ** 18)
 BSC = Blockchain(symbol="bsc", name="Binance Smart Chain")
 
 
