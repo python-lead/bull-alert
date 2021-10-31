@@ -1,6 +1,6 @@
 ---
 
-version: "3.7"
+version: "3.8"
 
 services:
   backend:
@@ -13,7 +13,7 @@ services:
         dockerfile: docker/Dockerfile
         args:
           BACKEND_ENV: development
-      container_name: ye_backend
+      container_name: bull_alert_backend
       restart: unless-stopped
       depends_on:
         - db
@@ -26,16 +26,28 @@ services:
         - ./backend:/code
       stdin_open: true
       tty: true
+      links:
+        - db:db
+      networks:
+        backend:
 
   db:
     image: postgres:12-alpine
-    container_name: ye_postgres
+    container_name: bull_alert_postgres
     restart: unless-stopped
     volumes:
       - pgdata:/var/lib/postgresql/data
     env_file: ./deployment/config/.env
     ports:
       - 5432:5432
+    networks:
+      backend:
+
+networks:
+  proxy:
+    driver: bridge
+  backend:
+    driver: bridge
 
 volumes:
   pgdata:
