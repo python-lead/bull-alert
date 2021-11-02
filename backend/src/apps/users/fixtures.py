@@ -1,6 +1,6 @@
 from typing import List
 
-from src.apps.users.models import ETH, Blockchain, User, Wallet
+from src.apps.users.schemas import ETH, Blockchain, User, Wallet
 
 
 def create_user(name: str, wallets: List[Wallet]) -> User:
