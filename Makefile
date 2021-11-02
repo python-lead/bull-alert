@@ -1,4 +1,4 @@
-.PHONY: dev exec-backend
+.PHONY: dev exec-backend test
 
 LINE=DEPLOYMENT_CONFIG=./deployment/config/.env
 FILE=.env
@@ -9,3 +9,6 @@ dev:
 
 exec-backend:
 	docker-compose exec backend bash
+
+test:
+	docker-compose exec backend ./scripts/test.sh
