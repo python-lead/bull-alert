@@ -11,6 +11,7 @@ class Settings(BaseSettings):
 
     # Postgres
     POSTGRES_DB: str
+    POSTGRES_SERVER: str
     POSTGRES_USER: str
     POSTGRES_PASSWORD: str
 
