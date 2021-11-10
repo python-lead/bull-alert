@@ -22,6 +22,7 @@ services:
       environment:
         BACKEND_DATABASE_HOST: db
         BACKEND_DATABASE_PORT: 5432
+        ENVIRONMENT: development
       volumes:
         - ./backend:/code
       stdin_open: true
