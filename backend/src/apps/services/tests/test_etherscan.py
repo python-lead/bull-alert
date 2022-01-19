@@ -4,7 +4,7 @@ from unittest.mock import MagicMock
 import pytest
 
 from src.apps.services.etherscan import EtherscanAccountModule, EtherscanService
-from src.apps.services.models import EtherscanClientResponse
+from src.apps.services.schemas import EtherscanClientResponse
 
 
 class TestEtherscanAccountModule:

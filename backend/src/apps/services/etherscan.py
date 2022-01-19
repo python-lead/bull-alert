@@ -3,8 +3,8 @@ from urllib.parse import ParseResult, urlencode, urlparse, urlunparse
 import httpx
 from httpx import Response
 
-from src.apps.services.models import EtherscanClientResponse
-from src.apps.users.models import ETH
+from src.apps.services.schemas import EtherscanClientResponse
+from src.apps.users.schemas import ETH
 from src.core.config import settings
 
 
